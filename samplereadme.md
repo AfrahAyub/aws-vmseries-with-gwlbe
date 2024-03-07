@@ -55,21 +55,10 @@ Create a folder in the bucket named `panw-vmseries-gwlb` In that folder, upload 
 
 Use aws-panw-gwlb-cfn-root.yaml to create the stack. There is only one parameter that will need to be modified, which is the name of the bucket. Modify the bucket to include the prefix used in your account
 
-## please go through the following tasks in order to run the use cases
+## please go through the following cases in order to run the use cases
 
 
-## Task1
-The "Hop & Code" owners are convinced that our competitor “Sneaky Suds” is exfiltrating our secret recipes.
-
-Your Application development team found some very strange behaviour on the Beer Database Server and asked you to have a deeper look into it to figure out what's going on.  After some investigations, you realized that no outbound traffic gets analyzed by the Palo Alto Networks Firewall. That's something that we have to fix.
-
-You started the journey by conducting a comprehensive audit of the existing AWS infrastructure. With a discerning eye, you created a detailed diagram of the AWS environment. You mapped out the route tables of every VPC and the Transit Gateway.
-
-<br />
-<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/detailed-start.png" alt="Full Starting Diagram with Route Tables" width="1500" /></p>
-<br />
-
-
+## Case 1
 ## Task
 
 **Redirect all outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall**
@@ -126,15 +115,6 @@ You started the journey by conducting a comprehensive audit of the existing AWS 
   - Security VM-Series (Palo Alto Networks Firewall)<br />
 <br />
 
-## Inventory
-- Palo Alto Networks NGFW VM-Series
-- Amazon EC2
-- Amazon VPC
-- AWS Systems Manager (SSM)
-- AWS Lambda
-- AWS AWS Tranist Gateway
-- AWS Gateway Load Balancer <br />
-<br />
 
 ## Services You Should Use
 - Palo Alto Networks NGFW VM-Series
@@ -142,10 +122,10 @@ You started the journey by conducting a comprehensive audit of the existing AWS 
 - Amazon VPC (Route tables) <br />
 
 ## clues
-Clue 1:Did you check the VPC Route Table?
+1:Did you check the VPC Route Table?
 You should check if the Route Tables of the Beer Store Data VPC is pointing to the correct Ressource
 
-Clue 2:Traffic still not showing in the Firewall?
+2:Traffic still not showing in the Firewall?
 If you still can't see the traffic in the Firewall monitoring. Please do the following:
 
 1. Login into the AWS console
@@ -166,7 +146,6 @@ If you still can't see the traffic in the Firewall monitoring. Please do the fol
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-clue2-new.png" /></p>
 <br />
-Answer:- Look for "web-browsing"
 
 ## Task2
 ## Background
