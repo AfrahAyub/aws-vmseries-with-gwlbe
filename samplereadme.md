@@ -143,7 +143,6 @@ If you still can't see the traffic in the Firewall monitoring. Please do the fol
 <br />
 
 ## case 2
-## Background
 ## Task
 1. First check on the Firewall if you can see any logs between the Beer Store Data Database Server and the Beer Store Frontend Webserver. You can add the following filter into the Firewall Monitor **( zone.src eq internal ) and ( zone.dst eq internal )**
 2. After seeing no Logs in the Firewall, you recongize that you have to solve some AWS routing issues. For any help, see Clue 1
