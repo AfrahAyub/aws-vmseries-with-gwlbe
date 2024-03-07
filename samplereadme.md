@@ -35,7 +35,7 @@ Once the script completes execution, you should be able to see the output as sho
 ```
 Setup completed successfully. Please proceed to CFT deployment.
 Please use the below Template URL for CFT deployment.
-TEMPLATE_URL = https://panw-aws-jam-resources-xxxxxx.s3.us-west-1.amazonaws.com/panw-vmseries-gwlb/aws-panw-gwlb-cfn-root.yaml
+TEMPLATE_URL = https://panw-aws-resources-506b9ea8-ce65-4416-8f5d-288991b33a30.s3.us-east-1.amazonaws.com/panw-vmseries-gwlb/aws-panw-gwlb-cfn-root.yaml
 ```
 5. You can now deploy a CloudFormation Template stack using the S3 Template URL seen from the setup script output.
 
