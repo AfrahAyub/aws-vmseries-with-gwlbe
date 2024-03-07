@@ -24,7 +24,7 @@ You can set up this environment in two ways:
 2. Open AWS CloudShell, wait for the CLI prompt to show up.
 3. Clone the github repository.
 ```
-git clone https://github.com/vsrkrishnan/panw-aws-jam-challenge-resources.git && cd panw-aws-jam-challenge-resources
+git clone https://github.com/AfrahAyub/panw-aws-jam-challenge-resources.git && cd panw-aws-jam-challenge-resources
 ```
 4. Run the setup command.
 ```
@@ -39,27 +39,21 @@ TEMPLATE_URL = https://panw-aws-jam-resources-xxxxxx.s3.us-west-1.amazonaws.com/
 ```
 5. You can now deploy a CloudFormation Template stack using the S3 Template URL seen from the setup script output.
 
-### Standard S3 Setup
+### Manual S3 Setup
 
 1. Prep S3 bucket
-
-we will use bucket names `aws-jam-challenge-resources`
-
-To deploy in a separate account, prepare a bucket with same format but apply a unique prefix to the bucket. For example, we used `panw-aws-jam-challenge-resources`
-
-
 2. Upload assets to S3
 
 Create a folder in the bucket named `panw-vmseries-gwlb` In that folder, upload the following assets:
 
 - The nested templates (combined, security, vmseries)
-- authcodes
+- authcodes(if the name is authcodes.txt please rename it to authcodes)
 - bootstrap.xml
 - init-cfg.txt
 
 3. Deploy stack
 
-Use aws-jam-panw-gwlb-cfn-root.yaml to create the stack. There is only one parameter that will need to be modified, which is the name of the bucket. Modify the bucket to include the prefix used in your account
+Use aws-panw-gwlb-cfn-root.yaml to create the stack. There is only one parameter that will need to be modified, which is the name of the bucket. Modify the bucket to include the prefix used in your account
 
 ## please go through the following tasks in order to run the use cases
 ## Overview
