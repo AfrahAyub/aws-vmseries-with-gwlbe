@@ -8,7 +8,7 @@ This repository contains cloudformation templates to deploy the vm-series with g
 - aws-panw-gwlb-cfn-root.yaml. This is the root stack that will be deployed. The other template files are nested from this one.
 
 
-You can set up this environment in two ways:
+You can set up this environment in the following way:
 
 ### Rapid S3 Setup
 
@@ -40,21 +40,6 @@ TEMPLATE_URL = https://panw-aws-resources-506b9ea8-ce65-4416-8f5d-288991b33a30.s
 5. You can now deploy a CloudFormation Template stack using the S3 Template URL seen from the setup script output.
 6. please create a new EC2 key pair in the region where you are going to deploy the setup script and once you have uploaded the setup script please rename the ec2 key pair and provide the name of the key-pair that you have generated
 
-### Manual S3 Setup
-
-1. Prep S3 bucket
-2. Upload assets to S3
-
-Create a folder in the bucket named `panw-vmseries-gwlb` In that folder, upload the following assets:
-
-- The nested templates (combined, security, vmseries)
-- authcodes(if the name is authcodes.txt please rename it to authcodes)
-- bootstrap.xml
-- init-cfg.txt
-
-3. Deploy stack
-
-Use aws-panw-gwlb-cfn-root.yaml to create the stack. There is only one parameter that will need to be modified, which is the name of the bucket. Modify the bucket to include the prefix used in your account
 
 ## please go through the following cases in order to run the use cases
 
