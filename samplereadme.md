@@ -116,12 +116,7 @@ Use aws-panw-gwlb-cfn-root.yaml to create the stack. There is only one parameter
 <br />
 
 
-## Services You Should Use
-- Palo Alto Networks NGFW VM-Series
-- Amazon EC2
-- Amazon VPC (Route tables) <br />
-
-## clues
+## Please go through this section in case you are not able to view the traffic
 1:Did you check the VPC Route Table?
 You should check if the Route Tables of the Beer Store Data VPC is pointing to the correct Ressource
 
@@ -147,21 +142,8 @@ If you still can't see the traffic in the Firewall monitoring. Please do the fol
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-clue2-new.png" /></p>
 <br />
 
-## Task2
+## case 2
 ## Background
-
-Now we have blocked Sneaky Suds from stealing our recipes by exfiltrating data from the Beer Vault Server. We need to figure out how did Sneaky Suds managed to get to the Beer Vault in the first place.
-
-Below is the updated AWS Network Diagram after making the previous changes
-
-<br />
-<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/after-task-1.png" alt="Network Diagram2" width="1500" /></p>
-<br />
-Time to find out how BrewGuardians Webstore became the weak link in our brew chain. In the Firewall logs we only saw the Outbound logs from the Beer Store Data Database. Time to investigate! Let’s  redirect the East-West traffic between our web frontend and the database to the Palo Alto Networks Firewall to see what's going on.
-<br />
-<br />
-
-
 ## Task
 1. First check on the Firewall if you can see any logs between the Beer Store Data Database Server and the Beer Store Frontend Webserver. You can add the following filter into the Firewall Monitor **( zone.src eq internal ) and ( zone.dst eq internal )**
 2. After seeing no Logs in the Firewall, you recongize that you have to solve some AWS routing issues. For any help, see Clue 1
@@ -192,14 +174,8 @@ Time to find out how BrewGuardians Webstore became the weak link in our brew cha
 - AWS Gateway Load Balancer <br />
 <br />
 
-## Services You Should Use
-- Palo Alto Networks NGFW VM-Series
-- Amazon EC2
-- AWS Transit Gateway (TGW route tables) <br />
-
-
-## Clues
-Clue 1:Did you looked into the TGW routing?
+## please go through this section in case you are not able to view the logs
+step 1:Did you looked into the TGW routing?
 1. Login into the AWS console
 2. Go to VPC Services and select under Transit Gateways the Transit gateway route tables
 <br />
@@ -218,7 +194,7 @@ Clue 1:Did you looked into the TGW routing?
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-clue1.png" /></p>
 <br />
 
-Clue 2:Can't find the logs inside the Firewall Monitor?
+step 2:Can't find the logs inside the Firewall Monitor?
 1. Log into the Palo Alto Networks VM-Series Firewall
 2. Go to Monitor -> Traffic
 <br />
@@ -229,25 +205,15 @@ Clue 2:Can't find the logs inside the Firewall Monitor?
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-filter.png" /></p>
 <br />
 
-Clue 3:Last Clue will provide the answer
+step 3:
 1. In the Monitor logs use the same filter as in Clue 2 and have a look at the column TO PORT
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-clue3.png" /></p>
 <br />
 
-Answer: 2222
 
-
-## Task3
+## case 3
 ## Background
-
-Well done on stopping the lateral propagation between the Beer Frontend Store and our Beer Store Data Database! Time to unmask how the Sneaky Suds exploited our Storefront.
-We have to figure out how they could get into our Beer Frontend Server. For that, we have to make some more changes to our AWS Infrastructure. Below are the updated AWS Network Diagram after making the previous changes
-
-<br />
-<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/after-task-2.png" alt="Network Diagram2" width="1500" /></p>
-<br />
-<br />
 
 
 ## Task
@@ -285,7 +251,6 @@ We have to figure out how they could get into our Beer Frontend Server. For that
 
 ## Task Validation
 - After you make the appropriate changes in AWS routing and on the Palo Alto Networks Firewall  it should have successfully blocked the attack to the **Beer Store Frontend Webserver** and you should be able to see a **reset-both** log entry in the Palo Alto Networks Monitor Logs -> Threat.
-- If yes, type the Threat Name/ID of the Log4j Attack in the answer field (The answer is case sensitive).
 <br />
 <br />
 
@@ -296,23 +261,7 @@ How to see the Threat Logs inside the Firewall
 - See the following picture as an example <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/threat.png" alt="Monitor Threat Logs" width="1000" /></p>
 <br />
 
-## Inventory
-- Palo Alto Networks NGFW VM-Series
-- Amazon EC2
-- Amazon VPC
-- AWS Systems Manager (SSM)
-- AWS Lambda
-- AWS Tranist Gateway
-- AWS Gateway Load Balancer <br />
-<br />
-
-## Services You Should Use
-- Palo Alto Networks NGFW VM-Series
-- Amazon EC2
-- Amazon VPC (Route tables / Internet Gateway)
-- AWS Gateway Load Balancer (endpoints) <br />
-
-## Clues
+## please refer this section in case you are not able to view the threat
 Clue 1:Did you checked the AWS route table?
 1. Login into the AWS console
 2. Go to VPC
@@ -354,5 +303,3 @@ Clue 2:Did you checked the Internet Route Table?
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue2.png" /></p>
 <br />
-
-Answer: Apache Log4j Remote Code Execution Vulnerability
