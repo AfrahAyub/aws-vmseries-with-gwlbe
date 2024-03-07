@@ -1,13 +1,11 @@
 # aws-panw-vmseries-cft-deployment
-Various CFT-based solutions are collected in this repository for puposes of deploying Software Firewall labs in the context of AWS events platform. Most recently used as AWS Re:invent 2023.
+This repository contains cloudformation templates to deploy the vm-series with gatewayloadbalancer lab on AWS
 
 ## Outline
 
 ![diagram](https://github.com/AfrahAyub/aws-panw-vmseries-cft-deployment/assets/93593501/abc4170d-dc38-4519-927b-a56bc5224527)
 
-This is the version being used for Re:invent Jam 2023. It is structured in a specific way to meet the layout of the Jam Event platform.
-
-- aws-jam-panw-gwlb-cfn-root.yaml. This is the root stack that will be deployed. The other template files are nested from this one.
+- aws-panw-gwlb-cfn-root.yaml. This is the root stack that will be deployed. The other template files are nested from this one.
 
 
 You can set up this environment in two ways:
