@@ -1,9 +1,11 @@
 # aws-panw-vmseries-cft-deployment
-This repository contains cloudformation templates to deploy the vm-series with gatewayloadbalancer lab on AWS
+This GitHub repository contains CloudFormation templates designed to deploy a lab environment featuring Palo Alto's VM-Series firewall integrated with AWS Gateway Load Balancer. The primary goal of this lab is to provide hands-on experience in setting up and configuring network security measures to protect digital assets. The lab aims to simulate various network security scenarios and provides a structured environment for users to practice configuring and managing network security policies.
+
+The lab consists of multiple use cases, each addressing specific network security tasks and validations.
 
 ## Outline
 
-![diagram](https://github.com/AfrahAyub/aws-panw-vmseries-cft-deployment/assets/93593501/abc4170d-dc38-4519-927b-a56bc5224527)
+![diagram](https://github-production-user-asset-6210df.s3.amazonaws.com/93593501/289739917-abc4170d-dc38-4519-927b-a56bc5224527.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240415%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240415T045801Z&X-Amz-Expires=300&X-Amz-Signature=8740fb026085374587f4b8428f596304ac6305d84cf59b82b3692c8d2f956488&X-Amz-SignedHeaders=host&actor_id=93593501&key_id=0&repo_id=730059713)
 
 - aws-panw-gwlb-cfn-root.yaml. This is the root stack that will be deployed. The other template files are nested from this one.
 
@@ -38,13 +40,14 @@ Please use the below Template URL for CFT deployment.
 TEMPLATE_URL = https://panw-aws-resources-506b9ea8-ce65-4416-8f5d-288991b33a30.s3.us-east-1.amazonaws.com/panw-vmseries-gwlb/aws-panw-gwlb-cfn-root.yaml
 ```
 5. You can now deploy a CloudFormation Template stack using the S3 Template URL seen from the setup script output.
-6. please create a new EC2 key pair in the region where you are going to deploy the setup script and once you have uploaded the setup script please rename the ec2 key pair and provide the name of the key-pair that you have generated
+6. Please create a new EC2 key pair in the region where you are going to deploy the setup script and once you have uploaded the setup script please rename the ec2 key pair and provide the name of the key-pair that you have generated
 
 
-## please go through the following cases in order to run the use cases
+## Please go through the following cases in order to run the Use Cases
 
 
-## Case 1
+## Use Case 1
+In this Use Case we will be redirecting outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall for inspection. This involves AWS routing adjustments and verifying traffic logs on the firewall. Read the following in order to run the Use Case 1:
 ## Task
 
 **Redirect all outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall**
@@ -120,7 +123,7 @@ If you still can't see the traffic in the Firewall monitoring. Please do the fol
 6. Click Edit routes and do the following changes:
 
   1. Remove the route 10.0.0.0/8 -> Target TGW
-  2.  Change the route 0.0.0.0/0 -> TGW
+  2. Change the route 0.0.0.0/0 -> TGW
   3. click Save
 
 7. Once you made the changes your routle should looks like the example below
@@ -128,7 +131,8 @@ If you still can't see the traffic in the Firewall monitoring. Please do the fol
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-clue2-new.png" /></p>
 <br />
 
-## case 2
+## Use Case 2
+In this Use Case we will be Investigating and resolving AWS routing issues to enable traffic between the Beer Store Data Database Server and the Beer Store Frontend Webserver. This task includes checking firewall logs and making necessary changes in AWS. Read the following in order to run the Use Case 2:
 ## Task
 1. First check on the Firewall if you can see any logs between the Beer Store Data Database Server and the Beer Store Frontend Webserver. You can add the following filter into the Firewall Monitor **( zone.src eq internal ) and ( zone.dst eq internal )**
 2. After seeing no Logs in the Firewall, you recongize that you have to solve some AWS routing issues. For any help, see Clue 1
@@ -159,8 +163,8 @@ If you still can't see the traffic in the Firewall monitoring. Please do the fol
 - AWS Gateway Load Balancer <br />
 <br />
 
-## please go through this section in case you are not able to view the logs
-step 1:Did you looked into the TGW routing?
+## Please go through this section in case you are not able to view the logs
+Step 1:Did you looked into the TGW routing?
 1. Login into the AWS console
 2. Go to VPC Services and select under Transit Gateways the Transit gateway route tables
 <br />
@@ -179,7 +183,7 @@ step 1:Did you looked into the TGW routing?
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-clue1.png" /></p>
 <br />
 
-step 2:Can't find the logs inside the Firewall Monitor?
+Step 2:Can't find the logs inside the Firewall Monitor?
 1. Log into the Palo Alto Networks VM-Series Firewall
 2. Go to Monitor -> Traffic
 <br />
@@ -190,17 +194,15 @@ step 2:Can't find the logs inside the Firewall Monitor?
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-filter.png" /></p>
 <br />
 
-step 3:
+Step 3:
 1. In the Monitor logs use the same filter as in Clue 2 and have a look at the column TO PORT
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-clue3.png" /></p>
 <br />
 
 
-## case 3
-## Background
-
-
+## Use Case 3
+In this Use Case we will be implementing inbound inspection by redirecting traffic from the Beer Frontend VPC to the firewall. This includes redirecting traffic, checking logs, identifying vulnerabilities, and updating firewall settings to block or reset malicious traffic. Read the following in order to run the Use Case 3:
 ## Task
 1. You realized that you have no Inbound inspection on the Beer Store by looking into the Firewall monitor logs and adding the following filter  **(( zone.src eq frontend ) and ( zone.dst eq frontend )) or (( zone.src eq external ) and ( zone.dst eq internal ))**. 
 2. You should now redirect the traffic from the Beer Frontend VPC to the Firewall. For help see Clue 1
