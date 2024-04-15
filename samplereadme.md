@@ -43,11 +43,11 @@ TEMPLATE_URL = https://panw-aws-resources-506b9ea8-ce65-4416-8f5d-288991b33a30.s
 6. Please create a new EC2 key pair in the region where you are going to deploy the setup script and once you have uploaded the setup script please rename the ec2 key pair and provide the name of the key-pair that you have generated
 
 
-## Please go through the following cases in order to run the use cases
+## Please go through the following cases in order to run the Use Cases
 
 
 ## Use Case 1
-In this Use Case we are redirecting outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall for inspection. This involves AWS routing adjustments and verifying traffic logs on the firewall. Read the following in order to run the Use Case 1:
+In this Use Case we will be redirecting outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall for inspection. This involves AWS routing adjustments and verifying traffic logs on the firewall. Read the following in order to run the Use Case 1:
 ## Task
 
 **Redirect all outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall**
@@ -132,6 +132,7 @@ If you still can't see the traffic in the Firewall monitoring. Please do the fol
 <br />
 
 ## Use Case 2
+In this Use Case we will be Investigating and resolving AWS routing issues to enable traffic between the Beer Store Data Database Server and the Beer Store Frontend Webserver. This task includes checking firewall logs and making necessary changes in AWS. Read the following in order to run the Use Case 2:
 ## Task
 1. First check on the Firewall if you can see any logs between the Beer Store Data Database Server and the Beer Store Frontend Webserver. You can add the following filter into the Firewall Monitor **( zone.src eq internal ) and ( zone.dst eq internal )**
 2. After seeing no Logs in the Firewall, you recongize that you have to solve some AWS routing issues. For any help, see Clue 1
@@ -201,6 +202,7 @@ Step 3:
 
 
 ## Use Case 3
+In this Use Case we will be implementing inbound inspection by redirecting traffic from the Beer Frontend VPC to the firewall. This includes redirecting traffic, checking logs, identifying vulnerabilities, and updating firewall settings to block or reset malicious traffic. Read the following in order to run the Use Case 3:
 ## Background
 
 
