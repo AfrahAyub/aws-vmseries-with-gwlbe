@@ -1,5 +1,7 @@
 # aws-panw-vmseries-cft-deployment
-This repository contains cloudformation templates to deploy the vm-series with gatewayloadbalancer lab on AWS
+This GitHub repository contains CloudFormation templates designed to deploy a lab environment featuring Palo Alto's VM-Series firewall integrated with AWS Gateway Load Balancer. The primary goal of this lab is to provide hands-on experience in setting up and configuring network security measures to protect digital assets. The lab aims to simulate various network security scenarios and provides a structured environment for users to practice configuring and managing network security policies.
+
+The lab consists of multiple use cases, each addressing specific network security tasks and validations.
 
 ## Outline
 
