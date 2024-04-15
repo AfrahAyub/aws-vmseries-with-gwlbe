@@ -46,7 +46,7 @@ TEMPLATE_URL = https://panw-aws-resources-506b9ea8-ce65-4416-8f5d-288991b33a30.s
 ## please go through the following cases in order to run the use cases
 
 
-## Case 1
+## Use Case 1
 ## Task
 
 **Redirect all outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall**
@@ -130,7 +130,7 @@ If you still can't see the traffic in the Firewall monitoring. Please do the fol
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-clue2-new.png" /></p>
 <br />
 
-## case 2
+## Use Case 2
 ## Task
 1. First check on the Firewall if you can see any logs between the Beer Store Data Database Server and the Beer Store Frontend Webserver. You can add the following filter into the Firewall Monitor **( zone.src eq internal ) and ( zone.dst eq internal )**
 2. After seeing no Logs in the Firewall, you recongize that you have to solve some AWS routing issues. For any help, see Clue 1
@@ -199,7 +199,7 @@ step 3:
 <br />
 
 
-## case 3
+## Use Case 3
 ## Background
 
 
