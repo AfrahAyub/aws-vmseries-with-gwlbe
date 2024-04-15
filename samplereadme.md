@@ -203,9 +203,6 @@ Step 3:
 
 ## Use Case 3
 In this Use Case we will be implementing inbound inspection by redirecting traffic from the Beer Frontend VPC to the firewall. This includes redirecting traffic, checking logs, identifying vulnerabilities, and updating firewall settings to block or reset malicious traffic. Read the following in order to run the Use Case 3:
-## Background
-
-
 ## Task
 1. You realized that you have no Inbound inspection on the Beer Store by looking into the Firewall monitor logs and adding the following filter  **(( zone.src eq frontend ) and ( zone.dst eq frontend )) or (( zone.src eq external ) and ( zone.dst eq internal ))**. 
 2. You should now redirect the traffic from the Beer Frontend VPC to the Firewall. For help see Clue 1
