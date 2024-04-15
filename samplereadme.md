@@ -40,10 +40,10 @@ Please use the below Template URL for CFT deployment.
 TEMPLATE_URL = https://panw-aws-resources-506b9ea8-ce65-4416-8f5d-288991b33a30.s3.us-east-1.amazonaws.com/panw-vmseries-gwlb/aws-panw-gwlb-cfn-root.yaml
 ```
 5. You can now deploy a CloudFormation Template stack using the S3 Template URL seen from the setup script output.
-6. please create a new EC2 key pair in the region where you are going to deploy the setup script and once you have uploaded the setup script please rename the ec2 key pair and provide the name of the key-pair that you have generated
+6. Please create a new EC2 key pair in the region where you are going to deploy the setup script and once you have uploaded the setup script please rename the ec2 key pair and provide the name of the key-pair that you have generated
 
 
-## please go through the following cases in order to run the use cases
+## Please go through the following cases in order to run the use cases
 
 
 ## Use Case 1
@@ -122,7 +122,7 @@ If you still can't see the traffic in the Firewall monitoring. Please do the fol
 6. Click Edit routes and do the following changes:
 
   1. Remove the route 10.0.0.0/8 -> Target TGW
-  2.  Change the route 0.0.0.0/0 -> TGW
+  2. Change the route 0.0.0.0/0 -> TGW
   3. click Save
 
 7. Once you made the changes your routle should looks like the example below
@@ -161,8 +161,8 @@ If you still can't see the traffic in the Firewall monitoring. Please do the fol
 - AWS Gateway Load Balancer <br />
 <br />
 
-## please go through this section in case you are not able to view the logs
-step 1:Did you looked into the TGW routing?
+## Please go through this section in case you are not able to view the logs
+Step 1:Did you looked into the TGW routing?
 1. Login into the AWS console
 2. Go to VPC Services and select under Transit Gateways the Transit gateway route tables
 <br />
@@ -181,7 +181,7 @@ step 1:Did you looked into the TGW routing?
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-clue1.png" /></p>
 <br />
 
-step 2:Can't find the logs inside the Firewall Monitor?
+Step 2:Can't find the logs inside the Firewall Monitor?
 1. Log into the Palo Alto Networks VM-Series Firewall
 2. Go to Monitor -> Traffic
 <br />
@@ -192,7 +192,7 @@ step 2:Can't find the logs inside the Firewall Monitor?
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-filter.png" /></p>
 <br />
 
-step 3:
+Step 3:
 1. In the Monitor logs use the same filter as in Clue 2 and have a look at the column TO PORT
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-clue3.png" /></p>
