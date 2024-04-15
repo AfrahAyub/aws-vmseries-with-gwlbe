@@ -5,7 +5,7 @@ The lab consists of multiple use cases, each addressing specific network securit
 
 ## Outline
 
-![diagram](https://github.com/AfrahAyub/aws-panw-vmseries-cft-deployment/assets/93593501/abc4170d-dc38-4519-927b-a56bc5224527)
+(https://github.com/AfrahAyub/aws-panw-vmseries-cft-deployment/assets/93593501/abc4170d-dc38-4519-927b-a56bc5224527)
 
 - aws-panw-gwlb-cfn-root.yaml. This is the root stack that will be deployed. The other template files are nested from this one.
 
