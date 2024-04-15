@@ -47,6 +47,7 @@ TEMPLATE_URL = https://panw-aws-resources-506b9ea8-ce65-4416-8f5d-288991b33a30.s
 
 
 ## Use Case 1
+In this Use Case we are redirecting outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall for inspection. This involves AWS routing adjustments and verifying traffic logs on the firewall. Read the following in order to run the Use Case 1:
 ## Task
 
 **Redirect all outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall**
