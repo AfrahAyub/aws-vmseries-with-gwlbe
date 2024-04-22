@@ -1,4 +1,5 @@
 # aws-panw-vmseries-cft-deployment
+
 This GitHub repository contains CloudFormation templates designed to deploy a lab environment featuring Palo Alto's VM-Series firewall integrated with AWS Gateway Load Balancer. The primary goal of this lab is to provide hands-on experience in setting up and configuring network security measures to protect digital assets. The lab aims to simulate various network security scenarios and provides a structured environment for users to practice configuring and managing network security policies.
 
 The lab consists of multiple use cases, each addressing specific network security tasks and validations.
@@ -46,6 +47,7 @@ TEMPLATE_URL = https://panw-aws-resources-506b9ea8-ce65-4416-8f5d-288991b33a30.s
 
 
 ## Use Case 1
+
 In this Use Case we will be redirecting outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall for inspection. This involves AWS routing adjustments and verifying traffic logs on the firewall. Read the following in order to run the Use Case 1:
 ## Task
 
@@ -66,7 +68,6 @@ Step 1- In this step we will Update AWS routing to redirect the Beer Store Data 
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-routes.png" /></p>
 <br />
 6. Click Edit routes and do the following changes:
-
   1. Remove the route 10.0.0.0/8 -> Target TGW
   2. Change the route 0.0.0.0/0 -> TGW
   3. click Save
@@ -95,7 +96,6 @@ Step 3- Now we will do the following steps in order to run the attack:
 - Once you made the appropriate changes in the AWS routing you can log into the **Beer Store Data Database Server** via the SSM service and test with the **curl** command if the EC2 instance has internet access.
   - example curl command **sudo curl www.google.de** 
 
-
 - If the curl command isn't working in the **Beer Store Data Database Server**, check the Palo Alto Networks Firewall Monitor Logs to see which Application is now blocked from the Firewall. 
 
 - You should see the following example log in the firewall monitoring. By adding the following filter **( zone.src eq internal ) and ( zone.dst eq external )** into the Monitor Logs filter bar.<br />
@@ -103,8 +103,7 @@ Step 3- Now we will do the following steps in order to run the attack:
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-deny2.png" alt="VPC Logs" width="1500" /></p>
 <br />
 
-
-Step 4- Check the Firewall Monitor traffic logs to verify if you can see any traffic from the Beer Store Data Database Server. To see the Traffic Logs inside the Firewall
+Step 4- Check the Firewall Monitor traffic logs to verify if you can see any traffic from the Beer Store Data Database Server. To see the Traffic Logs inside the firewall:
 - Login into the firewall
 - Inside the firewall navigate to Monitor -> Traffic
 - See the following picture as an example <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/example.png" alt="Monitor Logs" width="1500" /></p>
@@ -114,66 +113,31 @@ Step 4- Check the Firewall Monitor traffic logs to verify if you can see any tra
  <br />
 <br />
 
-## Helpful Info
-**Login into the Beer Store Data Database Server**
-- Use the Session Manager to log into the Server
-- The name of the VM is "Beer Store Data Database"
-
-
-
 ## Use Case 2
-In this Use Case we will be Investigating and resolving AWS routing issues to enable traffic between the Beer Store Data Database Server and the Beer Store Frontend Webserver. This task includes checking firewall logs and making necessary changes in AWS. Read the following in order to run the Use Case 2:
+
+In this Use Case we will have VM Series firewall inspect east-west traffic between the Beer Store Data Database Server and the Beer Store Frontend Webserver. As a part of this taskwe will update the AWS routing and also check the firewall logs. Read the following in order to run the Use Case 2:
 ## Task
-1. First check on the Firewall if you can see any logs between the Beer Store Data Database Server and the Beer Store Frontend Webserver. You can add the following filter into the Firewall Monitor **( zone.src eq internal ) and ( zone.dst eq internal )**
-2. After seeing no Logs in the Firewall, you recongize that you have to solve some AWS routing issues. For any help, see Clue 1
-3. After solving the AWS routing, you should be able to see the following Monitor Logs inside the Firewall
-<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-ssh-new.png" alt="SSH Logs" width="1500" /></p>
-<br />
 
-## Task Validation
-- Once you made the appropriate changes in AWS check if can see now traffic between the **Beer Store Data Database Server** and the **Beer Store Frontend Webserver** by typing the following filter in the Firewall Monitor **( zone.src eq internal ) and ( zone.dst eq internal )**
-- If you can see now the traffic between both EC2 Instances, type the Port number of the ssh application which is used for communication between both EC2 Instances.
-<br />
-<br />
-
-## Helpful info
-**How to see the Traffic Logs inside the Firewall**
-- Login into the firewall
-- Inside the Firewall, and Navigate to Monitor -> Traffic
-- See the following picture as an example <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/example.png" alt="Monitor Logs" width="1500" /></p>
-<br />
-
-## Inventory
-- Palo Alto Networks NGFW VM-Series
-- Amazon EC2
-- Amazon VPC
-- AWS Systems Manager (SSM)
-- AWS Lambda
-- AWS Tranist Gateway
-- AWS Gateway Load Balancer <br />
-<br />
-
-## Please go through this section in case you are not able to view the logs
-Step 1:Did you looked into the TGW routing?
+1. As the first step let's check the traffic between the Beer Store Data Database Server and the Beer Store Frontend Webserver. You can add the following filter into the Firewall Monitor **( zone.src eq internal ) and ( zone.dst eq internal )**
+2. There should not be logs seen on the firewall, so let's update the AWS routing. Please go through the following steps:
+Step 1: To make changes in the AWS routing we will do the following:
 1. Login into the AWS console
 2. Go to VPC Services and select under Transit Gateways the Transit gateway route tables
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-tgw-rt.png" /></p>
 <br />
-
 3. Select the Spoke TGW Route Table
 4. In the Route table click on Propagations
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-tgw2.png" /></p>
 <br />
-
 5. Select each propagations one by one and click delete propagations. Repeat it until both are deleted.
 6. Your TGW Route table should looks like the following after the deletion
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-clue1.png" /></p>
 <br />
 
-Step 2:Can't find the logs inside the Firewall Monitor?
+Step 2: To find the logs inside the Firewall Monitor:
 1. Log into the Palo Alto Networks VM-Series Firewall
 2. Go to Monitor -> Traffic
 <br />
@@ -185,24 +149,69 @@ Step 2:Can't find the logs inside the Firewall Monitor?
 <br />
 
 Step 3:
-1. In the Monitor logs use the same filter as in Clue 2 and have a look at the column TO PORT
+1. In the Monitor logs have a look at the column TO PORT(the attack is being automatically generated).
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-clue3.png" /></p>
 <br />
 
+3. Once you made the appropriate changes in AWS check if can see now traffic between the **Beer Store Data Database Server** and the **Beer Store Frontend Webserver** by typing the following filter in the Firewall Monitor **( zone.src eq internal ) and ( zone.dst eq internal )**
+   
+4. You should be able to see the following Monitor Logs inside the Firewall
+<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-ssh-new.png" alt="SSH Logs" width="1500" /></p>
+<br />
 
 ## Use Case 3
-In this Use Case we will be implementing inbound inspection by redirecting traffic from the Beer Frontend VPC to the firewall. This includes redirecting traffic, checking logs, identifying vulnerabilities, and updating firewall settings to block or reset malicious traffic. Read the following in order to run the Use Case 3:
+
+In this Use Case the VM Series firewall will inspect inbound traffic towards the Beer Frontend VPC. As a part of this task we will be redirecting traffic, checking logs, identifying vulnerabilities, and updating firewall settings to block or reset malicious traffic. Read the following in order to run the Use Case 3:
+
 ## Task
-1. You realized that you have no Inbound inspection on the Beer Store by looking into the Firewall monitor logs and adding the following filter  **(( zone.src eq frontend ) and ( zone.dst eq frontend )) or (( zone.src eq external ) and ( zone.dst eq internal ))**. 
-2. You should now redirect the traffic from the Beer Frontend VPC to the Firewall. For help see Clue 1
+
+1. You realized that you have no Inbound inspection on the Beer Store by looking into the Firewall monitor logs and adding the following filter  **(( zone.src eq frontend ) and ( zone.dst eq frontend )) or (( zone.src eq external ) and ( zone.dst eq internal ))**.
+
+2. You should now redirect the traffic from the Beer Frontend VPC to the Firewall. Please go through the following steps:
+1. Login into the AWS console
+2. Go to VPC
+3. Select in Filter by VPC field the "Beer Store Frontend VPC"
+4. As next go to Route Tables and select the Beer Store Frontend Public route table
+5. In the route table click on Routes (see below)
+<br />
+<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue1-pup-rt.png" /></p>
+<br />
+6. Click Edit routes and do the following change:
+ 1. Change the route 0.0.0.0/0 -> Gateway Load Balancer Endpoint
+ 2. click Save
+7. Once you made the changes your routle should looks like the example below
+<br />
+<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue1.png" /></p>
+<br />
+
 3. Now after you redirect inbound traffic through the Firewall, you should connect to the **Beer Store Frontend Webserver** (HTTP) over the Public IP. You should be able to see the following Webpage. This is the entrypoint to the Log4j Attack. The attack is being automatically generated, you do not need to authenticate to the beer store frontend before proceeding to the next step
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/beerstore.png" alt="Beer Store" width="500" /></p>
    In the Firewall Monitor Logs, you should see the following log by entering the Filter ( addr.src in YOUR-PIP ). Replace "YOUR-PIP" with your local Public IP (Logs can take up to 1 min to be shown in the Monitor) <br />
-   In case you still don't see any traffic logs, check the Internet Edge route table or check Clue 2
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-logs.png" alt="Logs" width="1000" /></p>
+ In case you still don't see any traffic logs, check the Internet Edge route table or do the following:
+ 1. Login into the AWS console
+ 2. Go to VPC
+ 3. Select in Filter by VPC field the "Beer Store Frontend VPC"
+ 4. As next go to Route Tables and select the Beer Store Frontend IGW Edge route table
+ 5. In the route table click on Routes (see below)
+ <br />
+ <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue2-igw-rt.png" /></p>
+ <br />
+ 6. Click Edit routes and do the following change:
+  - Add the route 10.1.2.0/24 -> Gateway Load Balancer Endpoint
+ <br />
+ <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue2-igw-rt2.png" /></p>
+ <br />
+  - click Save
+ 7. Once you made the changes your routle should looks like the example below
+ <br />
+ <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue2.png" /></p>
+ <br />
+
 4. Next we will check the Firewall Monitor Threat logs, to see if any unexpected behaviour is happening. In the Threat Logs, you can see some **Log4j** Attacks. But for some reason, the Firewall isn't blocking them, just alerting. See the picture below as an example.
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/alert-log4j-new.png" alt="alert" width="1000" /></p>
+   
 5. Now you have to change/update the Threat Profile on the Security Policy to block/reset the vulnerable traffic. To perform the change on the Security Policy follow the instructions below:
    1. On the Firewall tab on the browser, navigate to the Policies tab, and select Secuirty on the left pane
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol1.png" width="1000" /></p>
@@ -226,57 +235,9 @@ In this Use Case we will be implementing inbound inspection by redirecting traff
 <br />
 <br /> 
 
-## Task Validation
 - After you make the appropriate changes in AWS routing and on the Palo Alto Networks Firewall  it should have successfully blocked the attack to the **Beer Store Frontend Webserver** and you should be able to see a **reset-both** log entry in the Palo Alto Networks Monitor Logs -> Threat.
 <br />
 <br />
 
-### Helpful info
-How to see the Threat Logs inside the Firewall
-- Log into the firewall
-- Inside the Firewall Navigate to Monitor -> Threat
-- See the following picture as an example <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/threat.png" alt="Monitor Threat Logs" width="1000" /></p>
-<br />
-
-## please refer this section in case you are not able to view the threat
-Clue 1:Did you checked the AWS route table?
-1. Login into the AWS console
-2. Go to VPC
-3. Select in Filter by VPC field the "Beer Store Frontend VPC"
-4. As next go to Route Tables and select the Beer Store Frontend Public route table
-5. In the route table click on Routes (see below)
-<br />
-<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue1-pup-rt.png" /></p>
-<br />
-
-6. Click Edit routes and do the following change:
- 1. Change the route 0.0.0.0/0 -> Gateway Load Balancer Endpoint
- 2. click Save
-
-7. Once you made the changes your routle should looks like the example below
-<br />
-<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue1.png" /></p>
-<br />
-
-Clue 2:Did you checked the Internet Route Table?
-1. Login into the AWS console
-2. Go to VPC
-3. Select in Filter by VPC field the "Beer Store Frontend VPC"
-4. As next go to Route Tables and select the Beer Store Frontend IGW Edge route table
-5. In the route table click on Routes (see below)
-<br />
-<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue2-igw-rt.png" /></p>
-<br />
-
-6. Click Edit routes and do the following change:
-  - Add the route 10.1.2.0/24 -> Gateway Load Balancer Endpoint
-<br />
-<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue2-igw-rt2.png" /></p>
-<br />
-
-  - click Save
-
-7. Once you made the changes your routle should looks like the example below
-<br />
-<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue2.png" /></p>
-<br />
+## Summary
+We have completed this lab and we observed how VM Series firewall can be deployed in AWS environment to inspect inbound and east-west flow and inspect the traffic.
