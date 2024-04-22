@@ -50,6 +50,7 @@ In this Use Case we will be redirecting outbound traffic from the Beer Store Dat
 ## Task
 
 **Redirect all outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall**
+
 Step 1- In this step we will Update AWS routing to redirect the Beer Store Data Database Server outbound traffic for inspection by VM-Series through the Transit Gateway. Please go through the follwoing steps:
 
 1:In this step we will check the VPC Route Table to check if the Route Tables of the Beer Store Data VPC is pointing to the correct Ressource
