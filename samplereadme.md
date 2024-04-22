@@ -39,8 +39,7 @@ Setup completed successfully. Please proceed to CFT deployment.
 Please use the below Template URL for CFT deployment.
 TEMPLATE_URL = https://panw-aws-resources-506b9ea8-ce65-4416-8f5d-288991b33a30.s3.us-east-1.amazonaws.com/panw-vmseries-gwlb/aws-panw-gwlb-cfn-root.yaml
 ```
-5. You can now deploy a CloudFormation Template stack using the S3 Template URL seen from the setup script output.
-6. Please create a new EC2 key pair in the region where you are going to deploy the setup script and once you have uploaded the setup script please rename the ec2 key pair and provide the name of the key-pair that you have generated
+5. Please create a new EC2 key pair in the region where you are going to deploy the setup script and once you have uploaded the setup script please rename the EC2 key pair and provide the name of the key-pair that you have generated
 
 
 ## Please go through the following cases in order to run the Use Cases
