@@ -98,20 +98,17 @@ Step 3- Now we will do the following steps in order to run the attack:
 - Input the Name of the blocked Application in the answer field to complete the task. <br />
 <br />
 
-Step 4- Check the Firewall Monitor traffic logs to verify if you can see any traffic from the Beer Store Data Database Server. ((**Helpful Info Section**)
-
- <br />
-<br />
-
-## Helpful Info
-**How to see the Traffic Logs inside the Firewall**
+Step 4- Check the Firewall Monitor traffic logs to verify if you can see any traffic from the Beer Store Data Database Server. To see the Traffic Logs inside the Firewall
 - Login into the firewall
 - Inside the firewall navigate to Monitor -> Traffic
 - See the following picture as an example <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/example.png" alt="Monitor Logs" width="1500" /></p>
 - In the Monitor Traffic window change the refresh timer from **Manual** to **10 seconds** by clicking on the dropdown field on the top right as the picture below shows
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-10.png" alt="Monitor Logs" width="1500" /></p>
 
+ <br />
+<br />
 
+## Helpful Info
 **Login into the Beer Store Data Database Server**
 - Use the Session Manager to log into the Server
 - The name of the VM is "Beer Store Data Database"
