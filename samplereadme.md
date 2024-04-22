@@ -50,16 +50,39 @@ In this Use Case we will be redirecting outbound traffic from the Beer Store Dat
 ## Task
 
 **Redirect all outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall**
+1. In this step we will Update AWS routing to redirect the Beer Store Data Database Server outbound traffic for inspection by VM-Series through the Transit Gateway. Please go through the follwoing steps:
 
-1. First, login to the Firewall. (**Helpful Info Section**)
+1:In this step we will check the VPC Route Table to check if the Route Tables of the Beer Store Data VPC is pointing to the correct Ressource
 
-2. Check the Firewall Monitor traffic logs to verify if you can see any traffic from the Beer Store Data Database Server. ((**Helpful Info Section**)
+2: The Traffic will not be shown in the Firewall at first, to see the traffic in the Firewall monitoring. Please do the following:
 
-3. Update AWS routing to redirect the Beer Store Data Database Server outbound traffic for inspection by VM-Series through the Transit Gateway. <br />
+1. Login into the AWS console
+2. Go to VPC
+3. Select in Filter by VPC field the "Beer Store Data VPC"
+4. As next go to Route Tables and select the Beer Store Data Private route table
+5. In the route table click on Routes (see below)
 <br />
+<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-routes.png" /></p>
+<br />
+6. Click Edit routes and do the following changes:
 
-## Task Validation
+  1. Remove the route 10.0.0.0/8 -> Target TGW
+  2. Change the route 0.0.0.0/0 -> TGW
+  3. click Save
 
+7. Once you made the changes your routle should looks like the example below
+<br />
+<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-clue2-new.png" /></p>
+
+2. Now login to the Firewall go through the following steps:
+**To Login into the VM Series Firewall Web UI**
+- Identify the Elastic IP (Security VM-Series Management) of the EC2 Instance named "Security VM-Series"
+- Open a browser window and navigate to https://("Security VM-Series-EIP")
+- Login with the following credentials:
+  - Username: admin
+  - Password: Pal0Alt0@123
+
+3. Now we will do the following steps in order to run the attack:
 - Once you made the appropriate changes in the AWS routing you can log into the **Beer Store Data Database Server** via the SSM service and test with the **curl** command if the EC2 instance has internet access.
   - example curl command **sudo curl www.google.de** 
 
@@ -74,14 +97,12 @@ In this Use Case we will be redirecting outbound traffic from the Beer Store Dat
 - Input the Name of the blocked Application in the answer field to complete the task. <br />
 <br />
 
-## Helpful Info
-**To Login into the VM Series Firewall Web UI**
-- Identify the Elastic IP (Security VM-Series Management) of the EC2 Instance named "Security VM-Series"
-- Open a browser window and navigate to https://("Security VM-Series-EIP")
-- Login with the following credentials:
-  - Username: admin
-  - Password: Pal0Alt0@123
+4. Check the Firewall Monitor traffic logs to verify if you can see any traffic from the Beer Store Data Database Server. ((**Helpful Info Section**)
 
+ <br />
+<br />
+
+## Helpful Info
 **How to see the Traffic Logs inside the Firewall**
 - Login into the firewall
 - Inside the firewall navigate to Monitor -> Traffic
@@ -101,33 +122,6 @@ In this Use Case we will be redirecting outbound traffic from the Beer Store Dat
   - Beer Store Data Database
   - Beer Store Frontend Webserver
   - Security VM-Series (Palo Alto Networks Firewall)<br />
-<br />
-
-
-## Please go through this section in case you are not able to view the traffic
-1:Did you check the VPC Route Table?
-You should check if the Route Tables of the Beer Store Data VPC is pointing to the correct Ressource
-
-2:Traffic still not showing in the Firewall?
-If you still can't see the traffic in the Firewall monitoring. Please do the following:
-
-1. Login into the AWS console
-2. Go to VPC
-3. Select in Filter by VPC field the "Beer Store Data VPC"
-4. As next go to Route Tables and select the Beer Store Data Private route table
-5. In the route table click on Routes (see below)
-<br />
-<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-routes.png" /></p>
-<br />
-6. Click Edit routes and do the following changes:
-
-  1. Remove the route 10.0.0.0/8 -> Target TGW
-  2. Change the route 0.0.0.0/0 -> TGW
-  3. click Save
-
-7. Once you made the changes your routle should looks like the example below
-<br />
-<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-clue2-new.png" /></p>
 <br />
 
 ## Use Case 2
