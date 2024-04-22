@@ -94,7 +94,10 @@ Step 2- Now login to the Firewall go through the following steps:
 
 Step 3- Now we will do the following steps in order to run the attack:
 - Once you made the appropriate changes in the AWS routing you can log into the **Beer Store Data Database Server** via the SSM service and test with the **curl** command if the EC2 instance has internet access.
-  - example curl command **sudo curl www.google.de** 
+  - example curl command **sudo curl www.google.de**
+  - To Login into the Beer Store Data Database Server:
+    Use the Session Manager to log into the Server
+    The name of the VM is "Beer Store Data Database"
 
 - If the curl command isn't working in the **Beer Store Data Database Server**, check the Palo Alto Networks Firewall Monitor Logs to see which Application is now blocked from the Firewall. 
 
