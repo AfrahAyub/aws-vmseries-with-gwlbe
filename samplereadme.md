@@ -78,6 +78,14 @@ Step 1- In this step we will Update AWS routing to redirect the Beer Store Data 
 Step 2- Now login to the Firewall go through the following steps:
 **To Login into the VM Series Firewall Web UI**
 - Identify the Elastic IP (Security VM-Series Management) of the EC2 Instance named "Security VM-Series"
+ to find the server's private IP?
+1. On the AWS Console go to EC2
+2. On the EC2 Dashboard click on Instances
+3. The following EC2 instances are used by the lab:
+  - Beer Store Data Database
+  - Beer Store Frontend Webserver
+  - Security VM-Series (Palo Alto Networks Firewall)<br />
+<br />
 - Open a browser window and navigate to https://("Security VM-Series-EIP")
 - Login with the following credentials:
   - Username: admin
@@ -113,14 +121,7 @@ Step 4- Check the Firewall Monitor traffic logs to verify if you can see any tra
 - Use the Session Manager to log into the Server
 - The name of the VM is "Beer Store Data Database"
 
-**How to find the server's private IP?**
-- On the AWS Console go to EC2
-- On the EC2 Dashboard click on Instances
-- The following EC2 instances are used by the lab:
-  - Beer Store Data Database
-  - Beer Store Frontend Webserver
-  - Security VM-Series (Palo Alto Networks Firewall)<br />
-<br />
+
 
 ## Use Case 2
 In this Use Case we will be Investigating and resolving AWS routing issues to enable traffic between the Beer Store Data Database Server and the Beer Store Frontend Webserver. This task includes checking firewall logs and making necessary changes in AWS. Read the following in order to run the Use Case 2:
