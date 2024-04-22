@@ -103,8 +103,6 @@ Step 3- Now we will do the following steps in order to run the attack:
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-deny2.png" alt="VPC Logs" width="1500" /></p>
 <br />
 
-- Input the Name of the blocked Application in the answer field to complete the task. <br />
-<br />
 
 Step 4- Check the Firewall Monitor traffic logs to verify if you can see any traffic from the Beer Store Data Database Server. To see the Traffic Logs inside the Firewall
 - Login into the firewall
