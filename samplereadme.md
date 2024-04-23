@@ -178,11 +178,11 @@ Note: The attack is being automatically generated.
 
 ## Use Case 3: Inspect inbound traffic using VM-Series
 
-In this Use Case the VM Series firewall will inspect inbound traffic towards the Beer Frontend VPC. As a part of this task we will be redirecting traffic, checking logs, identifying vulnerabilities, and updating firewall settings to block or reset malicious traffic. Read the following in order to run the Use Case 3:
+In this Use Case the VM-Series firewall will inspect inbound traffic towards the **Beer Frontend VPC**. As a part of this task we will be redirecting traffic, checking logs, identifying vulnerabilities, and updating firewall settings to block or reset malicious traffic. Read the following in order to run the Use Case 3:
 
 ## Task
 
-1. You realized that you have no Inbound inspection on the Beer Store by looking into the Firewall monitor logs and adding the following filter  **(( zone.src eq frontend ) and ( zone.dst eq frontend )) or (( zone.src eq external ) and ( zone.dst eq internal ))**.
+1. You realized that you have no inbound inspection on the Beer Store by looking into the Firewall monitor logs and adding the following filter  **(( zone.src eq frontend ) and ( zone.dst eq frontend )) or (( zone.src eq external ) and ( zone.dst eq internal ))**.
 
 2. You should now redirect the traffic from the Beer Frontend VPC to the Firewall. Please go through the following steps:
 1. Login into the AWS console
