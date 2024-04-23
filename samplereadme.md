@@ -233,6 +233,7 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
    
    1. On the Firewall tab on the browser, navigate to the Policies tab, and select Secuirty on the left pane
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol1.png" width="1000" /></p>
+   
    2. Now you can see all the Security rules. Click on the Rule "Allow inbound" frontend rule, and a new window will open
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol2.png" width="1000" /></p>
    3. On the new window click on "Actions" tab
@@ -249,7 +250,7 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
    9. Wait for Status Complete and Result Successful and close the Window
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol8.png" width="500" /></p>
    
-7. After changing the **Vulnerability Protection** Profile from **alert** to **strict** you should see the following logs under the **Threat section** of the logs
+6. After changing the **Vulnerability Protection** Profile from **alert** to **strict** you should see the following logs under the **Threat section** of the logs:
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/blocked-log4j-new.png" width="1000" /></p>
 <br />
 <br /> 
