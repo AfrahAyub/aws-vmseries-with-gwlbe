@@ -46,77 +46,80 @@ TEMPLATE_URL = https://panw-aws-resources-506b9ea8-ce65-4416-8f5d-288991b33a30.s
 ## Please go through the following cases in order to run the Use Cases
 
 
-## Use Case 1
+## Use Case 1: Inspect outbound traffic using VM Series
 
-In this Use Case we will be redirecting outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall for inspection. This involves AWS routing adjustments and verifying traffic logs on the firewall. Read the following in order to run the Use Case 1:
+In this Use Case we will be redirecting outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks firewall for inspection. This involves AWS routing adjustments and verifying traffic logs on the firewall. Read the following in order to run the Use Case 1:
 ## Task
 
-**Redirect all outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks Firewall**
+**Step 1**- In this step we will Update AWS routing to redirect the Beer Store Data Database Server outbound traffic for inspection by VM-Series through the Transit Gateway. Please go through the follwoing steps:
 
-Step 1- In this step we will Update AWS routing to redirect the Beer Store Data Database Server outbound traffic for inspection by VM-Series through the Transit Gateway. Please go through the follwoing steps:
+  1: In this step we will check the VPC Route Table to check if the Route Tables of the Beer Store Data VPC is pointing to 
+     the correct resource
 
-1:In this step we will check the VPC Route Table to check if the Route Tables of the Beer Store Data VPC is pointing to the correct Ressource
+  2: The Traffic will not be shown in the firewall at first, to see the traffic in the Firewall monitoring. Please do the 
+     following:
 
-2: The Traffic will not be shown in the Firewall at first, to see the traffic in the Firewall monitoring. Please do the following:
-
-1. Login into the AWS console
-2. Go to VPC
-3. Select in Filter by VPC field the "Beer Store Data VPC"
-4. As next go to Route Tables and select the Beer Store Data Private route table
-5. In the route table click on Routes (see below)
+        1. Login into the AWS console
+        2. Go to VPC
+        3. Select in filter by VPC field the "Beer Store Data VPC"
+        4. Next, go to route tables and select the "Beer Store Data Private route table"
+        5. In the route table click on routes (see below)
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-routes.png" /></p>
 <br />
-6. Click Edit routes and do the following changes:
-  1. Remove the route 10.0.0.0/8 -> Target TGW
-  2. Change the route 0.0.0.0/0 -> TGW
-  3. click Save
+        6. Click Edit routes and do the following changes:
+          1. Remove the route 10.0.0.0/8 -> Target TGW
+          2. Change the route 0.0.0.0/0 -> TGW
+          3. click Save
 
-7. Once you made the changes your routle should looks like the example below
+        7. Once you made the changes your route should look like the example below
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-clue2-new.png" /></p>
 
-Step 2- Now login to the Firewall go through the following steps:
-**To Login into the VM Series Firewall Web UI**
-- Identify the Elastic IP (Security VM-Series Management) of the EC2 Instance named "Security VM-Series"
- to find the server's private IP?
-1. On the AWS Console go to EC2
-2. On the EC2 Dashboard click on Instances
-3. The following EC2 instances are used by the lab:
-  - Beer Store Data Database
-  - Beer Store Frontend Webserver
-  - Security VM-Series (Palo Alto Networks Firewall)<br />
+**Step 2**- Now login to the firewall. Go through the following steps:
+    - Identify the Elastic IP (Security VM-Series Management) of the EC2 Instance named "Security VM-Series"
+     to find the server's private IP.
+         1. On the AWS Console go to EC2
+         2. On the EC2 Dashboard click on Instances
+         3. The following EC2 instances are used by the lab:
+           - Beer Store Data Database
+           - Beer Store Frontend Webserver
+   - Security VM-Series (Palo Alto Networks Firewall)<br />
 <br />
 - Open a browser window and navigate to https://("Security VM-Series-EIP")
 - Login with the following credentials:
   - Username: admin
   - Password: Pal0Alt0@123
 
-Step 3- Now we will do the following steps in order to run the attack:
+
+**Step 3**- Now we will do the following steps in order to run the attack:
 - Once you made the appropriate changes in the AWS routing you can log into the **Beer Store Data Database Server** via the SSM service and test with the **curl** command if the EC2 instance has internet access.
   - example curl command **sudo curl www.google.de**
   - To Login into the Beer Store Data Database Server:
     - Use the Session Manager to log into the Server
     - The name of the VM is "Beer Store Data Database"
 
-- If the curl command isn't working in the **Beer Store Data Database Server**, check the Palo Alto Networks Firewall Monitor Logs to see which Application is now blocked from the Firewall. 
+- If the curl command isn't working in the **Beer Store Data Database Server**, check the Palo Alto Networks Firewall Monitor Logs to see which application is now blocked from the Firewall. 
 
 - You should see the following example log in the firewall monitoring. By adding the following filter **( zone.src eq internal ) and ( zone.dst eq external )** into the Monitor Logs filter bar.<br />
    Some fields in the example log were removed.
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-deny2.png" alt="VPC Logs" width="1500" /></p>
 <br />
 
-Step 4- Check the Firewall Monitor traffic logs to verify if you can see any traffic from the Beer Store Data Database Server. To see the Traffic Logs inside the firewall:
+**Step 4**- Check the "Firewall Monitor" traffic logs to verify if you can see any traffic from the Beer Store Data Database Server. To see the Traffic Logs inside the firewall:
 - Login into the firewall
 - Inside the firewall navigate to Monitor -> Traffic
 - See the following picture as an example <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/example.png" alt="Monitor Logs" width="1500" /></p>
-- In the Monitor Traffic window change the refresh timer from **Manual** to **10 seconds** by clicking on the dropdown field on the top right as the picture below shows
+- In the :Monitor: Traffic" window change the refresh timer from **Manual** to **10 seconds** by clicking on the dropdown field on the top right as the picture below shows
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-10.png" alt="Monitor Logs" width="1500" /></p>
 
  <br />
 <br />
 
-## Use Case 2
+This is the end of first Use Case.
+
+
+## Use Case 2: Inspect east-west traffic using VM-Series
 
 In this Use Case we will have VM Series firewall inspect east-west traffic between the Beer Store Data Database Server and the Beer Store Frontend Webserver. As a part of this taskwe will update the AWS routing and also check the firewall logs. Read the following in order to run the Use Case 2:
 ## Task
@@ -146,6 +149,7 @@ Step 2: To find the logs inside the Firewall Monitor:
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/example.png" /></p>
 <br />
+The attack is being automatically generated
 3. In the Filter field paste the the following filter ( zone.src eq internal ) and ( zone.dst eq internal ) and ( app eq ssh )
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-filter.png" /></p>
@@ -157,13 +161,13 @@ Step 3:
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-clue3.png" /></p>
 <br />
 
-3. Once you made the appropriate changes in AWS check if can see now traffic between the **Beer Store Data Database Server** and the **Beer Store Frontend Webserver** by typing the following filter in the Firewall Monitor **( zone.src eq internal ) and ( zone.dst eq internal )**
+2. Once you made the appropriate changes in AWS check if can see now traffic between the **Beer Store Data Database Server** and the **Beer Store Frontend Webserver** by typing the following filter in the Firewall Monitor **( zone.src eq internal ) and ( zone.dst eq internal )**
    
-4. You should be able to see the following Monitor Logs inside the Firewall
+3. You should be able to see the following Monitor Logs inside the Firewall
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-ssh-new.png" alt="SSH Logs" width="1500" /></p>
 <br />
 
-## Use Case 3
+## Use Case 3: Inspect inbound traffic using VM-Series
 
 In this Use Case the VM Series firewall will inspect inbound traffic towards the Beer Frontend VPC. As a part of this task we will be redirecting traffic, checking logs, identifying vulnerabilities, and updating firewall settings to block or reset malicious traffic. Read the following in order to run the Use Case 3:
 
