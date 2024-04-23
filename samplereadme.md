@@ -165,7 +165,7 @@ Note: The attack is being automatically generated.
 <br />
 
 **Step 3**:
-  1. In the Monitor logs have a look at the column TO PORT.
+  1. In the Monitor logs have a look at the column "TO PORT".
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-clue3.png" /></p>
 <br />
@@ -182,7 +182,7 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
 
 ## Task
 
-1. You realized that you have no inbound inspection on the Beer Store by looking into the Firewall monitor logs and adding the following filter  **(( zone.src eq frontend ) and ( zone.dst eq frontend )) or (( zone.src eq external ) and ( zone.dst eq internal ))**.
+1. You realized that you have no inbound inspection on the Beer Store by looking into the "Firewall: Monitor" logs and adding the following filter  **(( zone.src eq frontend ) and ( zone.dst eq frontend )) or (( zone.src eq external ) and ( zone.dst eq internal ))**.
 
 2. You should now redirect the traffic from the Beer Frontend VPC to the Firewall. Please go through the following steps:
 
@@ -204,9 +204,9 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue1.png" /></p>
 <br />
 
-3. Now after you redirect inbound traffic through the Firewall, you should connect to the **Beer Store Frontend Webserver** (HTTP) over the Public IP. You should be able to see the following Webpage. This is the entrypoint to the Log4j Attack. The attack is being automatically generated, you do not need to authenticate to the beer store frontend before proceeding to the next step
+3. Now after you redirect inbound traffic through the firewall, you should connect to the **Beer Store Frontend Webserver** (HTTP) over the Public IP. You should be able to see the following Webpage. This is the entrypoint to the Log4j Attack. The attack is being automatically generated, you do not need to authenticate to the beer store frontend before proceeding to the next step
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/beerstore.png" alt="Beer Store" width="500" /></p>
-   In the Firewall Monitor Logs, you should see the following log by entering the Filter ( addr.src in YOUR-PIP ). Replace "YOUR-PIP" with your local Public IP (Logs can take up to 1 min to be shown in the Monitor) <br />
+   In the "Firewall: Monitor" logs, you should see the following log by entering the filter ( addr.src in YOUR-PIP ). Replace "YOUR-PIP" with your local Public IP (Logs can take up to 1 min to be shown in the Monitor) <br />
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-logs.png" alt="Logs" width="1000" /></p>
  In case you still don't see any traffic logs, check the Internet Edge route table or do the following:
  1. Login into the AWS console
@@ -217,9 +217,9 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
  <br />
  <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue2-igw-rt.png" /></p>
  <br />
- 6. Click Edit routes and do the following change:
+ 6. Click "Edit routes" and do the following change:
   - Add the route 10.1.2.0/24 -> Gateway Load Balancer Endpoint
-  - click Save
+  - Click Save
  <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue2-igw-rt2.png" /></p>
  7. Once you made the changes your routle should looks like the example below
  <br />
@@ -254,7 +254,7 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
    8. A new window will open. Here you will have to click on "Commit" button
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol7.png" width="500" /></p>
    
-   9. Wait for Status Complete and Result Successful and close the Window
+   9. Wait for "Status Complete" and "Result Successful" and close the Window
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol8.png" width="500" /></p>
    
 6. After changing the **Vulnerability Protection** Profile from **alert** to **strict** you should see the following logs under the **Threat section** of the logs:
