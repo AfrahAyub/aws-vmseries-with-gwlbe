@@ -64,16 +64,16 @@ In this Use Case we will be redirecting outbound traffic from the Beer Store Dat
     3. Select in filter by VPC field the "Beer Store Data VPC"
     4. Next, go to route tables and select the "Beer Store Data Private route table"
     5. In the route table click on routes (see below)
-<br />
-<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-routes.png" /></p>
-<br />
-        6. Click Edit routes and do the following changes:
+    <br />
+    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-routes.png" /></p>
+    <br />
+    6. Click Edit routes and do the following changes:
         
-          1. Remove the route 10.0.0.0/8 -> Target TGW
-          2. Change the route 0.0.0.0/0 -> TGW
-          3. click Save
+        1. Remove the route 10.0.0.0/8 -> Target TGW
+        2. Change the route 0.0.0.0/0 -> TGW
+        3. click Save
 
-        7. Once you made the changes your route should look like the example below
+    7. Once you made the changes your route should look like the example below
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-clue2-new.png" /></p>
 
