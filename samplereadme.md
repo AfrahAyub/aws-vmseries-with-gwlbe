@@ -137,6 +137,7 @@ In this Use Case we will have VM-Series firewall inspect east-west traffic betwe
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-tgw-rt.png" /></p>
 <br />
   3. Select the Spoke TGW Route Table
+  
   4. In the Route table click on Propagations
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-tgw2.png" /></p>
