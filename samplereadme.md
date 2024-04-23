@@ -86,13 +86,14 @@ In this Use Case we will be redirecting outbound traffic from the Beer Store Dat
          3. The following EC2 instances are used by the lab:
            - Beer Store Data Database
            - Beer Store Frontend Webserver
-   - Security VM-Series (Palo Alto Networks Firewall)<br />
-<br />
-- Open a browser window and navigate to https://("Security VM-Series-EIP")
-- Login with the following credentials:
-  - Username: admin
-  - Password: Pal0Alt0@123
+           - Security VM-Series (Palo Alto Networks Firewall)
 
+
+    - Open a browser window and navigate to https://("Security VM-Series-EIP")
+        - Login with the following credentials:
+        - Username: admin
+        - Password: Pal0Alt0@123
+<br />
 
 **Step 3**- Now we will do the following steps in order to run the attack:
 - Once you made the appropriate changes in the AWS routing you can log into the **Beer Store Data Database Server** via the SSM service and test with the **curl** command if the EC2 instance has internet access.
