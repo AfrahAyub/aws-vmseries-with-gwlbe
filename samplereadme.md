@@ -236,17 +236,24 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
    
    2. Now you can see all the Security rules. Click on the Rule "Allow inbound" frontend rule, and a new window will open
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol2.png" width="1000" /></p>
+   
    3. On the new window click on "Actions" tab
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol3.png" width="500" /></p>
+   
    4. On the "Profile Setting" section you can see that under "Vulnerability Protection",the "alert" profile is selected. That profile will only alert and not block or reset any communication.
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol4.png" width="500" /></p>
+   
    5. Change the "Vulnerability Protection" from "alert" to "strict".
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol5.png" width="500" /></p>
+   
    6. Click "OK", and the window will close automatically.
+
    7. Next, we have to commit the changes you made to the firewall. Click on the **Commit** button in the top right corner.
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol6.png" width="500" /></p>
+
    8. A new window will open. Here you will have to click on "Commit" button
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol7.png" width="500" /></p>
+   
    9. Wait for Status Complete and Result Successful and close the Window
    <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/pol8.png" width="500" /></p>
    
