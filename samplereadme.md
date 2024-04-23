@@ -194,9 +194,10 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
   
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue1-pup-rt.png" /></p>
 
-  vi. Click Edit routes and do the following change:
-    - Change the route 0.0.0.0/0 -> Gateway Load Balancer Endpoint
-    - Click Save
+  vi. Click Edit routes and do the following changes:
+  - Change the route 0.0.0.0/0 -> Gateway Load Balancer Endpoint
+  - Click Save
+
 
   vii. Once you made the changes your routle should looks like the example below
 <br />
