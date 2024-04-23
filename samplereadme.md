@@ -142,6 +142,7 @@ In this Use Case we will have VM-Series firewall inspect east-west traffic betwe
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-tgw2.png" /></p>
 <br />
+
   5. Select each propagations one by one and click delete propagations. Repeat it until both are deleted.
   6. Your TGW Route table should looks like the following after the deletion
 <br />
