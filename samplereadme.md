@@ -48,7 +48,7 @@ TEMPLATE_URL = https://panw-aws-resources-506b9ea8-ce65-4416-8f5d-288991b33a30.s
 
 ## Use Case 1: Inspect outbound traffic using VM Series
 
-In this Use Case we will be redirecting outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks firewall for inspection. This involves AWS routing adjustments and verifying traffic logs on the firewall. Read the following in order to run the Use Case 1:
+In this Use Case we will be redirecting outbound traffic from the **Beer Store Data Database Server** to the **Palo Alto Networks** firewall for inspection. This involves AWS routing adjustments and verifying traffic logs on the firewall. Read the following in order to run the Use Case 1:
 ## Task
 
 **Step 1**- In this step we will Update AWS routing to redirect the Beer Store Data Database Server outbound traffic for inspection by VM-Series through the "Transit Gateway". Please go through the follwoing steps:
@@ -71,7 +71,7 @@ In this Use Case we will be redirecting outbound traffic from the Beer Store Dat
         
   1. Remove the route 10.0.0.0/8 -> Target TGW
   2. Change the route 0.0.0.0/0 -> TGW
-  3. click Save
+  3. Click Save
 
 7. Once you made the changes your route should look like the example below
 <br />
