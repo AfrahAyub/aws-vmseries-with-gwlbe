@@ -185,11 +185,11 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
 1. You realized that you have no inbound inspection on the Beer Store by looking into the Firewall monitor logs and adding the following filter  **(( zone.src eq frontend ) and ( zone.dst eq frontend )) or (( zone.src eq external ) and ( zone.dst eq internal ))**.
 
 2. You should now redirect the traffic from the Beer Frontend VPC to the Firewall. Please go through the following steps:
-  i. Login into the AWS console
-  ii. Go to VPC
-  iii. Select in Filter by VPC field the "Beer Store Frontend VPC"
-  iv. As next go to Route Tables and select the Beer Store Frontend Public route table
-  v. In the route table click on Routes (see below)
+i. Login into the AWS console
+ii. Go to VPC
+iii. Select in Filter by VPC field the "Beer Store Frontend VPC"
+iv. As next go to Route Tables and select the Beer Store Frontend Public route table
+v. In the route table click on Routes (see below)
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue1-pup-rt.png" /></p>
 
   vi. Click Edit routes and do the following change:
