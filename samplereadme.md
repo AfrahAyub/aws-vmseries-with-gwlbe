@@ -156,8 +156,8 @@ In this Use Case we will have VM-Series firewall inspect east-west traffic betwe
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/example.png" /></p>
 
 <br />
+
 Note: The attack is being automatically generated.
-<br />
 
   3. In the Filter field paste the the following filter ( zone.src eq internal ) and ( zone.dst eq internal ) and ( app eq ssh )
 <br />
