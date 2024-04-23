@@ -79,20 +79,20 @@ In this Use Case we will be redirecting outbound traffic from the Beer Store Dat
 <br />
 
 **Step 2**- Now login to the firewall. Go through the following steps:
-    - Identify the Elastic IP (Security VM-Series Management) of the EC2 Instance named "Security VM-Series"
-     to find the server's private IP.
-         1. On the AWS Console go to EC2
-         2. On the EC2 Dashboard click on Instances
-         3. The following EC2 instances are used by the lab:
-           - Beer Store Data Database
-           - Beer Store Frontend Webserver
-           - Security VM-Series (Palo Alto Networks Firewall)
+
+  - Identify the Elastic IP (Security VM-Series Management) of the EC2 Instance named "Security VM-Series" to find the server's private IP.
+    1. On the AWS Console go to EC2
+    2. On the EC2 Dashboard click on Instances
+    3. The following EC2 instances are used by the lab:
+       - Beer Store Data Database
+       - Beer Store Frontend Webserver
+       - Security VM-Series (Palo Alto Networks Firewall)
 
 
-    - Open a browser window and navigate to https://("Security VM-Series-EIP")
-        - Login with the following credentials:
-        - Username: admin
-        - Password: Pal0Alt0@123
+  - Open a browser window and navigate to https://("Security VM-Series-EIP")
+    - Login with the following credentials:
+    - Username: admin
+    - Password: Pal0Alt0@123
 <br />
 
 **Step 3**- Now we will do the following steps in order to run the attack:
