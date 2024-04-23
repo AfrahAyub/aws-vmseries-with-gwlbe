@@ -176,6 +176,9 @@ Note: The attack is being automatically generated.
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-ssh-new.png" alt="SSH Logs" width="1500" /></p>
 <br />
 
+This is the end of second Use Case.
+<br />
+
 ## Use Case 3: Inspect inbound traffic using VM-Series
 
 In this Use Case the VM-Series firewall will inspect inbound traffic towards the **Beer Frontend VPC**. As a part of this task we will be redirecting traffic, checking logs, identifying vulnerabilities, and updating firewall settings to block or reset malicious traffic. Read the following in order to run the Use Case 3:
@@ -264,6 +267,9 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
 
 - After you make the appropriate changes in AWS routing and on the Palo Alto Networks Firewall  it should have successfully blocked the attack to the **Beer Store Frontend Webserver** and you should be able to see a **reset-both** log entry in the Palo Alto Networks Monitor Logs -> Threat.
 <br />
+<br />
+
+This is the end of third Use Case.
 <br />
 
 ## Summary
