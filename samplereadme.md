@@ -186,7 +186,7 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
 
 2. You should now redirect the traffic from the Beer Frontend VPC to the Firewall. Please go through the following steps:
 
-  1. Login into the AWS console
+    1. Login into the AWS console
   2. Go to VPC
   3. Select in Filter by VPC field the "Beer Store Frontend VPC"
   4. As next go to Route Tables and select the Beer Store Frontend Public route table
@@ -195,8 +195,8 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue1-pup-rt.png" /></p>
 
   6. Click Edit routes and do the following change:
-   1. Change the route 0.0.0.0/0 -> Gateway Load Balancer Endpoint
-   2. click Save
+     - Change the route 0.0.0.0/0 -> Gateway Load Balancer Endpoint
+     - Click Save
 
   7. Once you made the changes your routle should looks like the example below
 <br />
