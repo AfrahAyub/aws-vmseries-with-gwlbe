@@ -51,7 +51,7 @@ TEMPLATE_URL = https://panw-aws-resources-506b9ea8-ce65-4416-8f5d-288991b33a30.s
 In this Use Case we will be redirecting outbound traffic from the Beer Store Data Database Server to the Palo Alto Networks firewall for inspection. This involves AWS routing adjustments and verifying traffic logs on the firewall. Read the following in order to run the Use Case 1:
 ## Task
 
-**Step 1**- In this step we will Update AWS routing to redirect the Beer Store Data Database Server outbound traffic for inspection by VM-Series through the Transit Gateway. Please go through the follwoing steps:
+**Step 1**- In this step we will Update AWS routing to redirect the Beer Store Data Database Server outbound traffic for inspection by VM-Series through the "Transit Gateway". Please go through the follwoing steps:
 
   1: In this step we will check the VPC Route Table to check if the Route Tables of the Beer Store Data VPC is pointing to 
      the correct resource
