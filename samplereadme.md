@@ -183,7 +183,6 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
 ## Task
 
 1. You realized that you have no inbound inspection on the Beer Store by looking into the Firewall monitor logs and adding the following filter  **(( zone.src eq frontend ) and ( zone.dst eq frontend )) or (( zone.src eq external ) and ( zone.dst eq internal ))**.
-
 2. You should now redirect the traffic from the Beer Frontend VPC to the Firewall. Please go through the following steps:
 
   1. Login into the AWS console
@@ -218,10 +217,8 @@ In this Use Case the VM-Series firewall will inspect inbound traffic towards the
  <br />
  6. Click Edit routes and do the following change:
   - Add the route 10.1.2.0/24 -> Gateway Load Balancer Endpoint
- <br />
- <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue2-igw-rt2.png" /></p>
- <br />
   - click Save
+ <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue2-igw-rt2.png" /></p>
  7. Once you made the changes your routle should looks like the example below
  <br />
  <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task3-clue2.png" /></p>
