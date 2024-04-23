@@ -76,7 +76,7 @@ In this Use Case we will be redirecting outbound traffic from the Beer Store Dat
 7. Once you made the changes your route should look like the example below
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task1-clue2-new.png" /></p>
-
+<br />
 
 **Step 2**- Now login to the firewall. Go through the following steps:
     - Identify the Elastic IP (Security VM-Series Management) of the EC2 Instance named "Security VM-Series"
