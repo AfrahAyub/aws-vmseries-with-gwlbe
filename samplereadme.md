@@ -129,45 +129,46 @@ In this Use Case we will have VM-Series firewall inspect east-west traffic betwe
 
 1. As the first step let's check the traffic between the Beer Store Data Database Server and the Beer Store Frontend Webserver. You can add the following filter into the Firewall Monitor **( zone.src eq internal ) and ( zone.dst eq internal )**
 2. There should not be logs seen on the firewall, so let's update the AWS routing. Please go through the following steps:
-Step 1: To make changes in the AWS routing we will do the following:
-1. Login into the AWS console
-2. Go to VPC Services and select under Transit Gateways the Transit gateway route tables
+
+**Step 1**: To make changes in the AWS routing we will do the following:
+  1. Login into the AWS console
+  2. Go to VPC Services and select under Transit Gateways the Transit gateway route tables
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-tgw-rt.png" /></p>
 <br />
-3. Select the Spoke TGW Route Table
-4. In the Route table click on Propagations
+  3. Select the Spoke TGW Route Table
+  4. In the Route table click on Propagations
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-tgw2.png" /></p>
 <br />
-5. Select each propagations one by one and click delete propagations. Repeat it until both are deleted.
-6. Your TGW Route table should looks like the following after the deletion
+  5. Select each propagations one by one and click delete propagations. Repeat it until both are deleted.
+  6. Your TGW Route table should looks like the following after the deletion
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-clue1.png" /></p>
 <br />
 
-Step 2: To find the logs inside the "Firewall: Monitor":
-1. Log into the Palo Alto Networks VM-Series Firewall
-2. Go to Monitor -> Traffic
+**Step 2**: To find the logs inside the "Firewall: Monitor":
+  1. Log into the Palo Alto Networks VM-Series Firewall
+  2. Go to Monitor -> Traffic
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/example.png" /></p>
 <br />
 The attack is being automatically generated
 <br />
-3. In the Filter field paste the the following filter ( zone.src eq internal ) and ( zone.dst eq internal ) and ( app eq ssh )
+  3. In the Filter field paste the the following filter ( zone.src eq internal ) and ( zone.dst eq internal ) and ( app eq ssh )
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-filter.png" /></p>
 <br />
 
-Step 3:
-1. In the Monitor logs have a look at the column TO PORT.
+**Step 3**:
+  1. In the Monitor logs have a look at the column TO PORT.
 <br />
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-clue3.png" /></p>
 <br />
 
-2. Once you made the appropriate changes in AWS check if can see now traffic between the **Beer Store Data Database Server** and the **Beer Store Frontend Webserver** by typing the following filter in the "Firewall: Monitor" **( zone.src eq internal ) and ( zone.dst eq internal )**
+  2. Once you made the appropriate changes in AWS check if can see now traffic between the **Beer Store Data Database Server** and the **Beer Store Frontend Webserver** by typing the following filter in the "Firewall: Monitor" **( zone.src eq internal ) and ( zone.dst eq internal )**
    
-3. You should be able to see the following Monitor Logs inside the Firewall
+  3. You should be able to see the following Monitor Logs inside the Firewall
 <p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/task2-ssh-new.png" alt="SSH Logs" width="1500" /></p>
 <br />
 
