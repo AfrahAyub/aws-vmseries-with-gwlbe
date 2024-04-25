@@ -6,7 +6,9 @@ The lab consists of multiple use cases, each addressing specific network securit
 
 ## Outline
 
-![diagram](https://github-production-user-asset-6210df.s3.amazonaws.com/93593501/289739917-abc4170d-dc38-4519-927b-a56bc5224527.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240415%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240415T045801Z&X-Amz-Expires=300&X-Amz-Signature=8740fb026085374587f4b8428f596304ac6305d84cf59b82b3692c8d2f956488&X-Amz-SignedHeaders=host&actor_id=93593501&key_id=0&repo_id=730059713)
+<br />
+<p><img src="https://aws-jam-challenge-resources.s3.amazonaws.com/panw-vmseries-gwlb/detailed-start.png" alt="Full Starting Diagram with Route Tables" width="1500" /></p>
+<br />
 
 - aws-panw-gwlb-cfn-root.yaml. This is the root stack that will be deployed. The other template files are nested from this one.
 
