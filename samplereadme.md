@@ -6,7 +6,7 @@ The lab consists of multiple use cases, each addressing specific network securit
 
 **Duration**: It will take approximately 2 hours to successfully complete this lab.
 
-**Note**:  if you are not able to complete this lab please make sure to run the **cleanup steps** mentioned towards the end of this guide to remove the resources.
+**Note**:  After completion lab please make sure to run the **cleanup steps** mentioned towards the end of this guide to remove the resources, if you are not able to complete this 
 
 ## Outline
 
