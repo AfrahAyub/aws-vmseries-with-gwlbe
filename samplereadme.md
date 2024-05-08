@@ -295,7 +295,24 @@ Go to the AWS Floudformation service and delete the root stack which you had dep
 ![Screenshot (183)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/de107f6b-2123-4b66-b443-9bc20bde2113)
 
 
+**Stack Failed to delete section**
+In case you get a message that says stack is failed to delete for the test-CombinedStack and test-SecurityStack, follow the following steps
 
+1. Select the test-CombinedStack
+![Screenshot (184)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/86faf4c6-7cd6-4268-84a0-157b51a95e10)
+2. Click on **Delete**
+![Screenshot (185)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/e04e4f4d-2704-44d2-96d1-9c0c6ee39e12)
+3. Once the test-CombinedStack is deleted, Select test-SecurityStack 
+![Screenshot (187)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/52802da9-8563-46be-a303-229bb1a9e0aa)
+4. Click on **Delete**
+![Screenshot (188)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/7e6db6ce-7c37-4e11-a71d-469de3e404b0)
+5. Finally select the test-stack 
+![Screenshot (189)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/b3d171f7-a74f-434a-80df-1e9bca73ccad)
+6. Click on **Delete**
+![Screenshot (190)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/c8c51126-ba7c-47ee-88f7-67dac26c6980)
+7. Now go to the VPC section and check if all the VPCs are deleted, if not then Select the VPC and click **Delete**
+![Screenshot (192)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/b624ac57-655a-40df-bad4-50df0c6c980f)
+![Screenshot (193)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/966d965d-78a7-41ab-86ef-347cecf798e4)
 
 
 
