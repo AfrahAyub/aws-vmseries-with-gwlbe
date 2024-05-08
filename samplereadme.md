@@ -295,7 +295,8 @@ Go to the AWS Floudformation service and delete the root stack which you had dep
 ![Screenshot (183)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/de107f6b-2123-4b66-b443-9bc20bde2113)
 
 
-**Stack Failed to delete section**
+
+
 
 In case you get a message that says: "DELETE_FAILED" for the test-CombinedStack and test-SecurityStack, follow the following steps
 
