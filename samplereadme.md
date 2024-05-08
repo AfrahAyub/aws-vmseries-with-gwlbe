@@ -297,7 +297,7 @@ Go to the AWS Floudformation service and delete the root stack which you had dep
 
 **Stack Failed to delete section**
 
-In case you get a message that says stack is failed to delete for the test-CombinedStack and test-SecurityStack, follow the following steps
+In case you get a message that says: "DELETE_FAILED" for the test-CombinedStack and test-SecurityStack, follow the following steps
 
 **Note**: the name of the stack deployed here is "test", please select the stackname that you have deployed to delete the nested stack
 
