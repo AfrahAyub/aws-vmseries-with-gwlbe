@@ -2,7 +2,10 @@
 
 This GitHub repository contains CloudFormation templates designed to deploy a lab environment featuring Palo Alto's VM-Series firewall integrated with AWS Gateway Load Balancer. The primary goal of this lab is to provide hands-on experience in setting up and configuring network security measures to protect digital assets. The lab aims to simulate various network security scenarios and provides a structured environment for users to practice configuring and managing network security policies.
 
-The lab consists of multiple use cases, each addressing specific network security tasks and validations.
+The lab consists of multiple use cases, each addressing specific network security tasks and validations. In this lab we are deploying a single instance of VM-Series firewall and not using autoscale service.
+
+**Duration**: It will take approximately 2 hours to successfully complete this lab.
+**Note**:  if you are not able to complete this lab please make sure to run the **cleanup steps** mentioned towards the end of this guide to remove the resources.
 
 ## Outline
 
@@ -276,3 +279,9 @@ This is the end of third Use Case.
 
 ## Summary
 We have completed this lab and we observed how VM Series firewall can be deployed in AWS environment to inspect inbound and east-west flow and inspect the traffic.
+
+## Cleanup Steps
+Once you have completed the lab successfully,  follow the following steps for the cleanup:
+1. go to the AWS Floudformation service and delete the root stack which you had deployed initially using the URL, refer the following steps:
+   1. Go to the AWS CloudFormation service and  select the stack(stack name) that was deployed
+![Screenshot (180)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/77391a56-b645-44a7-8804-c45756b5d687)
