@@ -284,4 +284,13 @@ We have completed this lab and we observed how VM Series firewall can be deploye
 Once you have completed the lab successfully,  follow the following steps for the cleanup:
 1. go to the AWS Floudformation service and delete the root stack which you had deployed initially using the URL, refer the following steps:
    1. Go to the AWS CloudFormation service and  select the stack(stack name) that was deployed
-![Screenshot (180)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/77391a56-b645-44a7-8804-c45756b5d687)
+![Screenshot (181)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/d4ca515c-d765-4109-a51f-a41224c40c9a)
+  2. Click on **Delete**
+![Screenshot (182)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/951c7365-8f29-41bd-84cd-cbb3eb714da1)
+**Note**: it will take approximately 10-15 minutes for the stack to get deleted.
+  3. Once the stack is deleted go to the AWS Cloudshell, select Actions and select Delete AWS CloudShell home directory option
+![Screenshot (183)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/de107f6b-2123-4b66-b443-9bc20bde2113)
+
+
+
+
