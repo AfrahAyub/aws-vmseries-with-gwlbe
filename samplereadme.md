@@ -5,6 +5,7 @@ This GitHub repository contains CloudFormation templates designed to deploy a la
 The lab consists of multiple use cases, each addressing specific network security tasks and validations. In this lab we are deploying a single instance of VM-Series firewall and not using autoscale service.
 
 **Duration**: It will take approximately 2 hours to successfully complete this lab.
+
 **Note**:  if you are not able to complete this lab please make sure to run the **cleanup steps** mentioned towards the end of this guide to remove the resources.
 
 ## Outline
