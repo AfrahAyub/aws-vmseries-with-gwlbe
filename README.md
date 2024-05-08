@@ -2,7 +2,11 @@
 
 This GitHub repository contains CloudFormation templates designed to deploy a lab environment featuring Palo Alto's VM-Series firewall integrated with AWS Gateway Load Balancer. The primary goal of this lab is to provide hands-on experience in setting up and configuring network security measures to protect digital assets. The lab aims to simulate various network security scenarios and provides a structured environment for users to practice configuring and managing network security policies.
 
-The lab consists of multiple use cases, each addressing specific network security tasks and validations.
+The lab consists of multiple use cases, each addressing specific network security tasks and validations. In this lab we are deploying a single instance of VM-Series firewall and not using autoscale service.
+
+**Duration**: It will take approximately 2 hours to successfully complete this lab.
+
+**Note**:  After completion of lab please make sure to run the **cleanup steps** mentioned towards the end of this guide to remove the resources, even if you are not able to complete it please execute the cleanup to remove all the resources.
 
 ## Outline
 
@@ -276,3 +280,44 @@ This is the end of third Use Case.
 
 ## Summary
 We have completed this lab and we observed how VM Series firewall can be deployed in AWS environment to inspect inbound and east-west flow and inspect the traffic.
+
+## Cleanup Steps
+Once you have completed the lab successfully,  follow the following steps for the cleanup:
+
+Go to the AWS Floudformation service and delete the root stack which you had deployed initially using the URL, refer the following steps:
+
+   1. Go to the AWS CloudFormation service and  select the stack(stack name) that was deployed
+![Screenshot (181)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/d4ca515c-d765-4109-a51f-a41224c40c9a)
+   2. Click on **Delete**
+![Screenshot (182)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/951c7365-8f29-41bd-84cd-cbb3eb714da1)
+**Note**: it will take approximately 10-15 minutes for the stack to get deleted.
+   3. Once the stack is deleted go to the AWS Cloudshell, select Actions and select Delete AWS CloudShell home directory option
+![Screenshot (183)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/de107f6b-2123-4b66-b443-9bc20bde2113)
+
+
+
+
+
+In case you get a message that says: "DELETE_FAILED" for the test-CombinedStack and test-SecurityStack, follow the following steps
+
+**Note**: the name of the stack deployed here is "test", please select the stackname that you have deployed to delete the nested stack
+
+1. Select the test-CombinedStack
+![Screenshot (184)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/86faf4c6-7cd6-4268-84a0-157b51a95e10)
+2. Click on **Delete**
+![Screenshot (185)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/e04e4f4d-2704-44d2-96d1-9c0c6ee39e12)
+3. Once the test-CombinedStack is deleted, Select test-SecurityStack 
+![Screenshot (187)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/52802da9-8563-46be-a303-229bb1a9e0aa)
+4. Click on **Delete**
+![Screenshot (188)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/7e6db6ce-7c37-4e11-a71d-469de3e404b0)
+5. Finally select the test-stack 
+![Screenshot (189)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/b3d171f7-a74f-434a-80df-1e9bca73ccad)
+6. Click on **Delete**
+![Screenshot (190)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/c8c51126-ba7c-47ee-88f7-67dac26c6980)
+7. Now go to the VPC section and check if all the VPCs are deleted, if not then Select the VPC and click **Delete**
+![Screenshot (192)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/b624ac57-655a-40df-bad4-50df0c6c980f)
+![Screenshot (193)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/966d965d-78a7-41ab-86ef-347cecf798e4)
+
+
+
+
