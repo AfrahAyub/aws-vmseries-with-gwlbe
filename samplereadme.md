@@ -33,10 +33,11 @@ You can set up this environment in the following way:
 2. Open AWS CloudShell, wait for the CLI prompt to show up.
 3. Clone the github repository.
 ```
-git clone https://github.com/AfrahAyub/panw-aws-jam-challenge-resources.git && cd panw-aws-jam-challenge-resources
+git clone https://github.com/PaloAltoNetworks/AWS-VM-Series.git && cd AWS-VM-Series
 ```
 4. Run the setup command.
 ```
+chmod +x setup-cft.sh
 ./setup-cft.sh
 ```
 
@@ -317,8 +318,6 @@ In case you get a message that says: "DELETE_FAILED" for the test-CombinedStack 
 7. Now go to the VPC section and check if all the VPCs are deleted, if not then Select the VPC and click **Delete**
 ![Screenshot (192)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/b624ac57-655a-40df-bad4-50df0c6c980f)
 ![Screenshot (193)](https://github.com/AfrahAyub/aws-vmseries-with-gwlbe/assets/93593501/966d965d-78a7-41ab-86ef-347cecf798e4)
-
-
 
 
 
